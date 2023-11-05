@@ -1,5 +1,8 @@
 {
+  "name": "@ifyour/deeplx",
   "version": "0.1.0",
+  "author": "ifyour",
+  "module": "dist/deeplx.esm.js",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -31,9 +34,6 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "deeplx",
-  "author": "ifyour",
-  "module": "dist/deeplx.esm.js",
   "size-limit": [
     {
       "path": "dist/deeplx.cjs.production.min.js",
