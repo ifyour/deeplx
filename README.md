@@ -31,3 +31,6 @@ yarn test
 
 yarn lint --fix
 ```
+
+## Known issues
+Based on current testing, Cloudflare and Cloudflare-based edge function runtimes (Vercel) are not able to correctly request the DeepL server, and a 525 error occurs, a detailed description of the issue can be found [here](https://github.com/cloudflare/workerd/issues/776).
