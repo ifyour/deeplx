@@ -1,4 +1,4 @@
-import { RequestParams, ResponseParams, Config } from './types';
+import { RequestParams, ResponseParams } from './types';
 import { API_URL, DEFAULT_LANGUAGE, REQUEST_ALTERNATIVES } from './const';
 
 function buildRequestParams(sourceLang: string, targetLang: string) {
@@ -52,8 +52,8 @@ function buildRequestBody(data: RequestParams) {
   return requestString;
 }
 
-async function query(params: RequestParams, config?: Config) {
-  const response = await fetch(config?.entrypoint ?? API_URL, {
+async function query(params: RequestParams) {
+  const response = await fetch(API_URL, {
     headers: {
       'Content-Type': 'application/json; charset=utf-8',
     },

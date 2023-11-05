@@ -19,8 +19,3 @@ export type ResponseParams = {
     detectedLanguages: { unsupported: number } & Record<string, number>;
   };
 };
-
-export type Config = {
-  /** Customizing the request endpoint, e.g. using a proxy endpoint */
-  entrypoint?: string;
-}
