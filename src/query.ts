@@ -1,15 +1,15 @@
-import type { RequestParams, ResponseParams } from './types';
+import { RequestParams, ResponseParams } from './types';
 import { API_URL, DEFAULT_LANGUAGE, REQUEST_ALTERNATIVES } from './const';
 
 function buildRequestParams(sourceLang: string, targetLang: string) {
   return {
-    jsonrpc: "2.0",
-    method: "LMT_handle_texts",
+    jsonrpc: '2.0',
+    method: 'LMT_handle_texts',
     id: Math.floor(Math.random() * 100000 + 100000) * 1000,
     params: {
-      texts: [{ text: "", requestAlternatives: REQUEST_ALTERNATIVES }],
+      texts: [{ text: '', requestAlternatives: REQUEST_ALTERNATIVES }],
       timestamp: 0,
-      splitting: "newlines",
+      splitting: 'newlines',
       lang: {
         source_lang_user_selected: sourceLang,
         target_lang: targetLang,
@@ -19,7 +19,7 @@ function buildRequestParams(sourceLang: string, targetLang: string) {
 }
 
 function countLetterI(translateText: string) {
-  return translateText.split("i").length - 1;
+  return translateText.split('i').length - 1;
 }
 
 function getTimestamp(letterCount: number) {
@@ -41,8 +41,8 @@ function buildRequestBody(data: RequestParams) {
 
   let requestString = JSON.stringify(requestData);
   if (
-    [0, 3].includes((requestData["id"] + 5) % 29) ||
-    (requestData["id"] + 3) % 13 === 0
+    [0, 3].includes((requestData['id'] + 5) % 29) ||
+    (requestData['id'] + 3) % 13 === 0
   ) {
     requestString = requestString.replace('"method":"', '"method" : "');
   } else {
@@ -55,21 +55,21 @@ function buildRequestBody(data: RequestParams) {
 async function query(params: RequestParams) {
   const response = await fetch(API_URL, {
     headers: {
-      "Content-Type": "application/json; charset=utf-8",
+      'Content-Type': 'application/json; charset=utf-8',
     },
-    method: "POST",
+    method: 'POST',
     body: buildRequestBody(params),
   });
 
   if (response.ok) {
-    const { id, result } = await response.json() as ResponseParams;
+    const { id, result } = (await response.json()) as ResponseParams;
     return {
       id,
       code: 200,
       data: result?.texts?.[0]?.text,
       source_lang: params?.source_lang,
       target_lang: params?.target_lang,
-      alternatives: result.texts?.[0]?.alternatives?.map?.(item => item.text)
+      alternatives: result.texts?.[0]?.alternatives?.map?.(item => item.text),
     };
   }
 
@@ -78,9 +78,9 @@ async function query(params: RequestParams) {
     code: response.status,
     data:
       response.status === 429
-        ? "Too many requests, please try again later."
-        : "Unknown error.",
+        ? 'Too many requests, please try again later.'
+        : 'Unknown error.',
   };
 }
 
-export { query }
+export { query };
