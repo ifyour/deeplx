@@ -1,6 +1,6 @@
 {
   "name": "@ifyour/deeplx",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "author": "ifyour",
   "module": "dist/deeplx.esm.js",
   "license": "MIT",
