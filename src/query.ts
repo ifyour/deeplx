@@ -1,5 +1,10 @@
 import { RequestParams, ResponseParams } from './types';
-import { API_URL, DEFAULT_LANGUAGE, REQUEST_ALTERNATIVES, DEFAULT_REQUEST_PARAMS } from './const';
+import {
+  API_URL,
+  DEFAULT_LANGUAGE,
+  REQUEST_ALTERNATIVES,
+  DEFAULT_REQUEST_PARAMS,
+} from './const';
 
 function buildRequestParams(sourceLang: string, targetLang: string) {
   return {
