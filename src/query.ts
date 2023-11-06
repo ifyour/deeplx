@@ -1,10 +1,5 @@
 import { RequestParams, ResponseParams } from './types';
-import {
-  API_URL,
-  DEFAULT_LANGUAGE,
-  REQUEST_ALTERNATIVES,
-  DEFAULT_REQUEST_PARAMS,
-} from './const';
+import { API_URL, REQUEST_ALTERNATIVES, DEFAULT_REQUEST_PARAMS } from './const';
 
 function buildRequestParams(sourceLang: string, targetLang: string) {
   return {
@@ -35,10 +30,7 @@ function getTimestamp(letterCount: number) {
 }
 
 function buildRequestBody(data: RequestParams) {
-  const requestData = buildRequestParams(
-    data.source_lang || DEFAULT_LANGUAGE,
-    data.target_lang || DEFAULT_LANGUAGE
-  );
+  const requestData = buildRequestParams(data.source_lang, data.target_lang);
   requestData.params.texts = [
     { text: data.text, requestAlternatives: REQUEST_ALTERNATIVES },
   ];
