@@ -5,5 +5,5 @@ export const REQUEST_ALTERNATIVES = 3;
 export const DEFAULT_REQUEST_PARAMS = {
   text: 'Error: the request was incorrect',
   source_lang: DEFAULT_LANGUAGE,
-  target_lang: 'zh',
+  target_lang: 'en',
 };
