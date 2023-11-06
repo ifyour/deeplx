@@ -63,7 +63,7 @@ async function query(params: RequestParams) {
       'Content-Type': 'application/json; charset=utf-8',
     },
     method: 'POST',
-    body: buildRequestBody(Object.assign({}, DEFAULT_REQUEST_PARAMS, params)),
+    body: buildRequestBody({ ...DEFAULT_REQUEST_PARAMS, ...params }),
   });
 
   if (response.ok) {
@@ -81,10 +81,11 @@ async function query(params: RequestParams) {
   return {
     id: 42,
     code: response.status,
+    params,
     data:
       response.status === 429
         ? 'Too many requests, please try again later.'
-        : response.statusText || 'Unknown error.',
+        : 'Unknown error.',
   };
 }
 
