@@ -1,5 +1,5 @@
 import { RequestParams, ResponseParams } from './types';
-import { API_URL, DEFAULT_LANGUAGE, REQUEST_ALTERNATIVES } from './const';
+import { API_URL, DEFAULT_LANGUAGE, REQUEST_ALTERNATIVES, DEFAULT_REQUEST_PARAMS } from './const';
 
 function buildRequestParams(sourceLang: string, targetLang: string) {
   return {
@@ -58,7 +58,7 @@ async function query(params: RequestParams) {
       'Content-Type': 'application/json; charset=utf-8',
     },
     method: 'POST',
-    body: buildRequestBody(params),
+    body: buildRequestBody({ ...DEFAULT_REQUEST_PARAMS, ...params }),
   });
 
   if (response.ok) {
