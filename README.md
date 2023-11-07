@@ -21,12 +21,16 @@ module.exports = async function(params) {
 ## Dev
 
 ```bash
+yarn install
+
 # You need to install bun, please refer to https://bun.sh
-yarn dev # or bun --watch ./src/devServer.ts
+yarn run dev
 
-yarn test
+yarn run test
 
-yarn lint --fix
+yarn run lint --fix
+
+yarn run publish
 ```
 
 ## Known issues
