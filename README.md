@@ -29,8 +29,6 @@ yarn run dev
 yarn run test
 
 yarn run lint --fix
-
-yarn run publish
 ```
 
 ## Known issues
