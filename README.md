@@ -1,6 +1,6 @@
 # DeepLx 
 
-![dw](https://badgen.net/npm/dw/@ifyour/deeplx)
+![dw](https://badgen.net/npm/dt/@ifyour/deeplx)
 
 DeepLx API npm package.
 
