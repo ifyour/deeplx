@@ -21,11 +21,8 @@ module.exports = async function(params) {
 ## Dev
 
 ```bash
-git clone https://github.com/ifyour/deeplx.git
-
-cd deeplx
-
-yarn && yarn start
+# You need to install bun, please refer to https://bun.sh
+yarn dev # or bun --watch ./devServer.ts
 
 yarn test
 
@@ -33,4 +30,5 @@ yarn lint --fix
 ```
 
 ## Known issues
+
 Based on current testing, Cloudflare and Cloudflare-based edge function runtimes (Vercel) are not able to correctly request the DeepL server, and a 525 error occurs, a detailed description of the issue can be found [here](https://github.com/cloudflare/workerd/issues/776).

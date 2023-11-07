@@ -1,7 +1,7 @@
 import { RequestParams, ResponseParams } from './types';
-import { API_URL, REQUEST_ALTERNATIVES, DEFAULT_REQUEST_PARAMS } from './const';
+import { API_URL, REQUEST_ALTERNATIVES } from './const';
 
-function buildRequestParams(sourceLang: string, targetLang: string) {
+function buildRequestParams(sourceLang = 'auto', targetLang = 'en') {
   return {
     jsonrpc: '2.0',
     method: 'LMT_handle_texts',
@@ -19,7 +19,7 @@ function buildRequestParams(sourceLang: string, targetLang: string) {
 }
 
 function countLetterI(translateText: string) {
-  return translateText.split('i').length - 1;
+  return (translateText || '').split('i').length - 1;
 }
 
 function getTimestamp(letterCount: number) {
@@ -50,12 +50,19 @@ function buildRequestBody(data: RequestParams) {
 }
 
 async function query(params: RequestParams) {
+  if (!params || JSON.stringify(params) === '{}') {
+    return {
+      code: 404,
+      message: 'No Translate Text Found',
+    };
+  }
+
   const response = await fetch(API_URL, {
     headers: {
       'Content-Type': 'application/json; charset=utf-8',
     },
     method: 'POST',
-    body: buildRequestBody({ ...DEFAULT_REQUEST_PARAMS, ...params }),
+    body: buildRequestBody(params),
   });
 
   if (response.ok) {
@@ -64,8 +71,8 @@ async function query(params: RequestParams) {
       id,
       code: 200,
       data: result?.texts?.[0]?.text,
-      source_lang: params?.source_lang,
-      target_lang: params?.target_lang,
+      source_lang: params?.source_lang || 'auto',
+      target_lang: params?.target_lang || 'en',
       alternatives: result.texts?.[0]?.alternatives?.map?.(item => item.text),
     };
   }
