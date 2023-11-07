@@ -22,7 +22,7 @@ module.exports = async function(params) {
 
 ```bash
 # You need to install bun, please refer to https://bun.sh
-yarn dev # or bun --watch ./devServer.ts
+yarn dev # or bun --watch ./src/devServer.ts
 
 yarn test
 
