@@ -21,7 +21,7 @@ global.fetch = jest.fn(() =>
 );
 
 describe('query', () => {
-  it('sends a post request and returns the response', async () => {
+  it('should have a correct return format', async () => {
     const response = await query({
       text: '翻译文本',
       source_lang: 'zh',
@@ -35,11 +35,13 @@ describe('query', () => {
         headers: { 'Content-Type': 'application/json; charset=utf-8' },
       })
     );
-    expect(response.id).toEqual(1);
-    expect(response.code).toEqual(200);
-    expect(response.data).toEqual('Translated text');
-    expect(response.alternatives).toEqual(['Translated text']);
-    expect(response.source_lang).toBe('zh');
-    expect(response.target_lang).toBe('en');
+    expect(response).toEqual({
+      code: 200,
+      message: 'success',
+      data: 'Translated text',
+      alternatives: ['Translated text'],
+      source_lang: 'zh',
+      target_lang: 'en',
+    });
   });
 });
