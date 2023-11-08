@@ -1,10 +1,4 @@
-export type RequestParams = {
-  text: string;
-  source_lang: string;
-  target_lang: string;
-};
-
-export type ResponseParams = {
+export type RawResponseParams = {
   jsonrpc: string;
   id: number;
   result: {
@@ -18,4 +12,19 @@ export type ResponseParams = {
     lang_is_confident: boolean;
     detectedLanguages: { unsupported: number } & Record<string, number>;
   };
+};
+
+export type RequestParams = {
+  text: string;
+  source_lang: string;
+  target_lang: string;
+};
+
+export type ResponseParams = {
+  code: number;
+  message: string;
+  data: string | null;
+  source_lang?: string;
+  target_lang?: string;
+  alternatives?: string[];
 };

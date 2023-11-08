@@ -1,4 +1,4 @@
-import { RequestParams, ResponseParams } from './types';
+import { RequestParams, RawResponseParams, ResponseParams } from './types';
 import { API_URL, REQUEST_ALTERNATIVES } from './const';
 
 function buildRequestParams(sourceLang = 'auto', targetLang = 'en') {
@@ -49,11 +49,12 @@ function buildRequestBody(data: RequestParams) {
   return requestString;
 }
 
-async function query(params: RequestParams) {
+async function query(params: RequestParams): Promise<ResponseParams> {
   if (!params || JSON.stringify(params) === '{}') {
     return {
       code: 404,
       message: 'No Translate Text Found',
+      data: null,
     };
   }
 
@@ -66,26 +67,25 @@ async function query(params: RequestParams) {
   });
 
   if (response.ok) {
-    const { id, result } = (await response.json()) as ResponseParams;
+    const { result } = (await response.json()) as RawResponseParams;
     return {
-      id,
       code: 200,
+      message: 'success',
       data: result?.texts?.[0]?.text,
       source_lang: params?.source_lang || 'auto',
       target_lang: params?.target_lang || 'en',
       alternatives: result.texts?.[0]?.alternatives?.map?.(item => item.text),
     };
+  } else {
+    return {
+      code: response.status,
+      data: null,
+      message:
+        response.status === 429
+          ? 'Too many requests, please try again later.'
+          : 'Unknown error.',
+    };
   }
-
-  return {
-    id: 42,
-    code: response.status,
-    params,
-    data:
-      response.status === 429
-        ? 'Too many requests, please try again later.'
-        : 'Unknown error.',
-  };
 }
 
 export { query };
