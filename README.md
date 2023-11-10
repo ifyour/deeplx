@@ -11,7 +11,7 @@ npm i @ifyour/deeplx
 ```
 
 ```curl
-curl --location 'https://deeplx.mingming.dev/translate' \
+curl --location 'https://nw6usm5uha.us.aircode.run/demo' \
 --header 'Content-Type: application/json' \
 --data '{
     "text": "你好，世界",
@@ -35,7 +35,7 @@ curl --location 'https://deeplx.mingming.dev/translate' \
 }
 ```
 
-![demo](https://images.mingming.dev/file/2c28df4c563c697f3763d.png)
+![demo](https://images.mingming.dev/file/d1c6fd89334f18b34d9ac.png)
 
 ## Dev
 
