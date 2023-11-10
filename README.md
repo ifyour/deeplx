@@ -1,8 +1,8 @@
 # DeepLx 
 
-![dw](https://badgen.net/npm/dt/@ifyour/deeplx)
+⚡️ DeepLx API npm package.
 
-DeepLx API npm package.
+[![dw](https://badgen.net/npm/dt/@ifyour/deeplx)](https://www.npmjs.com/package/@ifyour/deeplx)
 
 ## Usage
 
