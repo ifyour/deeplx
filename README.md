@@ -10,12 +10,29 @@
 npm i @ifyour/deeplx
 ```
 
-```js
-const { query } = require('@ifyour/deeplx');
+```curl
+curl --location 'https://deeplx.mingming.dev/translate' \
+--header 'Content-Type: application/json' \
+--data '{
+    "text": "你好，世界",
+    "source_lang": "zh",
+    "target_lang": "en"
+}'
+```
 
-module.exports = async function(params) {
-  return await query(params);
-};
+```json
+{
+    "code": 200,
+    "message": "success",
+    "data": "Hello, world.",
+    "source_lang": "zh",
+    "target_lang": "en",
+    "alternatives": [
+        "Hello, World.",
+        "Hello, world!",
+        "Hi, world."
+    ]
+}
 ```
 
 ![demo](https://images.mingming.dev/file/2c28df4c563c697f3763d.png)
