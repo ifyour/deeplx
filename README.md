@@ -10,6 +10,18 @@
 npm i @ifyour/deeplx
 ```
 
+
+In your backend service, install and use this package, you can use any backend framework you like. Here's a demo of my deployment on [AirCode](https://github.com/ifyour/deeplx-js), you can click here to deploy one of your own.
+
+
+```js
+import { query } from '@ifyour/deeplx';
+
+export default async function (params, context) {
+  return await query(params);
+}
+```
+
 ```curl
 curl --location 'https://nw6usm5uha.us.aircode.run/demo' \
 --header 'Content-Type: application/json' \
