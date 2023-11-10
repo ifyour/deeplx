@@ -11,7 +11,7 @@ npm i @ifyour/deeplx
 ```
 
 
-In your backend service, install and use this package, you can use any backend framework you like. Here's a demo of my deployment on [AirCode](https://github.com/ifyour/deeplx-js), you can click here to deploy one of your own.
+In your backend service, install and use this package, you can use any backend framework you like. Here's a demo of my deployment on [AirCode](https://aircode.io), you can [click here](https://github.com/ifyour/deeplx-js) to deploy one of your own.
 
 
 ```js
