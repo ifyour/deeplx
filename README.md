@@ -2,7 +2,7 @@
 
 ⚡️ DeepLx API npm package.
 
-[![test](https://badgen.net/github/checks/ifyour/deeplx/main?label=CI)](https://github.com/ifyour/deeplx/actions/workflows/main.yml)
+[![test](https://badgen.net/github/checks/ifyour/deeplx/main?label=%20CI)](https://github.com/ifyour/deeplx/actions/workflows/main.yml)
 [![dw](https://badgen.net/npm/dt/@ifyour/deeplx?label=Downloads)](https://www.npmjs.com/package/@ifyour/deeplx)
 
 ## Usage
