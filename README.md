@@ -1,7 +1,8 @@
-# DeepLx 
+# DeepLx
 
 ⚡️ DeepLx API npm package.
 
+[![test](https://badgen.net/github/checks/ifyour/deeplx/main?label=test)](https://github.com/ifyour/deeplx/actions/workflows/main.yml)
 [![dw](https://badgen.net/npm/dt/@ifyour/deeplx)](https://www.npmjs.com/package/@ifyour/deeplx)
 
 ## Usage
@@ -10,14 +11,12 @@
 npm i @ifyour/deeplx
 ```
 
-
 In your backend service, install and use this package, you can use any backend framework you like. Here's a demo of my deployment on [AirCode](https://aircode.io), you can [click here](https://github.com/ifyour/deeplx-js) to deploy one of your own.
-
 
 ```js
 import { query } from '@ifyour/deeplx';
 
-export default async function (params, context) {
+export default async function(params, context) {
   return await query(params);
 }
 ```
@@ -34,16 +33,12 @@ curl --location 'https://nw6usm5uha.us.aircode.run/demo' \
 
 ```json
 {
-    "code": 200,
-    "message": "success",
-    "data": "Hello, world.",
-    "source_lang": "zh",
-    "target_lang": "en",
-    "alternatives": [
-        "Hello, World.",
-        "Hello, world!",
-        "Hi, world."
-    ]
+  "code": 200,
+  "message": "success",
+  "data": "Hello, world.",
+  "source_lang": "zh",
+  "target_lang": "en",
+  "alternatives": ["Hello, World.", "Hello, world!", "Hi, world."]
 }
 ```
 
@@ -65,3 +60,7 @@ yarn run lint --fix
 ## Known issues
 
 Based on current testing, Cloudflare and Cloudflare-based edge function runtimes (Vercel) are not able to correctly request the DeepL server, and a 525 error occurs, a detailed description of the issue can be found [here](https://github.com/cloudflare/workerd/issues/776).
+
+## License
+
+DeepLx is available under the MIT license.
