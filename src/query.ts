@@ -50,7 +50,7 @@ function buildRequestBody(data: RequestParams) {
 }
 
 async function query(params: RequestParams): Promise<ResponseParams> {
-  if (!params || JSON.stringify(params) === '{}') {
+  if (!params?.text) {
     return {
       code: 404,
       message: 'No Translate Text Found',
