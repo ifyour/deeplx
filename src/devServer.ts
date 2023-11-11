@@ -4,6 +4,14 @@ import { RequestParams } from './types';
 
 const app = new Hono();
 
+app.get('/', c => {
+  return c.redirect('/translate');
+});
+
+app.get('/translate', c => {
+  return c.text('Please use post method to request');
+});
+
 app.post('/translate', async c => {
   let params: RequestParams;
   try {
