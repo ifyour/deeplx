@@ -1,4 +1,9 @@
-import { RequestParams, RawResponseParams, ResponseParams, Config } from './types';
+import {
+  RequestParams,
+  RawResponseParams,
+  ResponseParams,
+  Config,
+} from './types';
 import { API_URL, REQUEST_ALTERNATIVES } from './const';
 
 function buildRequestParams(sourceLang = 'auto', targetLang = 'en') {
@@ -49,7 +54,10 @@ function buildRequestBody(data: RequestParams) {
   return requestString;
 }
 
-async function query(params: RequestParams, config?: Config): Promise<ResponseParams> {
+async function query(
+  params: RequestParams,
+  config?: Config
+): Promise<ResponseParams> {
   if (!params?.text) {
     return {
       code: 404,

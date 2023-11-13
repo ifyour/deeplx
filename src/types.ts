@@ -31,4 +31,4 @@ export type ResponseParams = {
 
 export type Config = {
   proxyEndpoint?: string;
-}
+};
