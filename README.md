@@ -61,22 +61,7 @@ yarn run lint --fix
 
 Based on current testing, Cloudflare and Cloudflare-based edge function runtimes (Vercel) are not able to correctly request the DeepL server, and a 525 error occurs, a detailed description of the issue can be found [here](https://github.com/cloudflare/workerd/issues/776).
 
-For this case, it can be solved using the [DeepL proxy server](https://github.com/ifyour/deepl-proxy), refer to Deploying to Cloudflare Code:
-
-```ts
-import { Hono } from 'hono'
-import { query } from '@ifyour/deeplx'
-
-const app = new Hono()
-
-app.post('/translate', async c => {
-    const params = await c.req.json()
-    const result = await query(params, { proxyEndpoint: 'https://ideepl.vercel.app/jsonrpc' })
-    return c.json(result, result.code)
-  })
-
-export default app
-```
+For this case, it can be solved using the [DeepL proxy server](https://github.com/ifyour/deepl-proxy), refer to Deploying to Cloudflare [Code](https://github.com/ifyour/deeplx-for-cloudflare).
 
 ## License
 
