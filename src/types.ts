@@ -28,3 +28,7 @@ export type ResponseParams = {
   target_lang?: string;
   alternatives?: string[];
 };
+
+export type Config = {
+  proxyEndpoint?: string;
+}

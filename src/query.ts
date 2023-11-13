@@ -1,4 +1,4 @@
-import { RequestParams, RawResponseParams, ResponseParams } from './types';
+import { RequestParams, RawResponseParams, ResponseParams, Config } from './types';
 import { API_URL, REQUEST_ALTERNATIVES } from './const';
 
 function buildRequestParams(sourceLang = 'auto', targetLang = 'en') {
@@ -49,7 +49,7 @@ function buildRequestBody(data: RequestParams) {
   return requestString;
 }
 
-async function query(params: RequestParams): Promise<ResponseParams> {
+async function query(params: RequestParams, config?: Config): Promise<ResponseParams> {
   if (!params?.text) {
     return {
       code: 404,
@@ -58,7 +58,7 @@ async function query(params: RequestParams): Promise<ResponseParams> {
     };
   }
 
-  const response = await fetch(API_URL, {
+  const response = await fetch(config?.proxyEndpoint ?? API_URL, {
     headers: {
       'Content-Type': 'application/json; charset=utf-8',
     },
