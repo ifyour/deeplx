@@ -61,7 +61,7 @@ yarn run lint --fix
 
 Based on current testing, Cloudflare and Cloudflare-based edge function runtimes (Vercel) are not able to correctly request the DeepL server, and a 525 error occurs, a detailed description of the issue can be found [here](https://github.com/cloudflare/workerd/issues/776).
 
-For this case, it can be solved using the [DeepL proxy server](https://github.com/ifyour/deepl-proxy), refer to Deploying to Cloudflare [Code](https://github.com/ifyour/deeplx-for-cloudflare).
+For this case, it can be solved using the [DeepL proxy server](https://github.com/ifyour/deepl-proxy), please refer to the code [example](https://github.com/ifyour/deeplx-for-cloudflare).
 
 ## License
 
