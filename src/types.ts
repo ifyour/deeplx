@@ -1,3 +1,9 @@
+import { SUPPORTED_LANGUAGES } from './const';
+
+type Lang = typeof SUPPORTED_LANGUAGES[number];
+export type SourceLang = Lang | 'auto';
+export type TargetLang = Lang;
+
 export type RawResponseParams = {
   jsonrpc: string;
   id: number;
@@ -16,16 +22,16 @@ export type RawResponseParams = {
 
 export type RequestParams = {
   text: string;
-  source_lang: string;
-  target_lang: string;
+  source_lang: SourceLang;
+  target_lang: TargetLang;
 };
 
 export type ResponseParams = {
   code: number;
   message: string;
   data: string | null;
-  source_lang?: string;
-  target_lang?: string;
+  source_lang?: SourceLang;
+  target_lang?: TargetLang;
   alternatives?: string[];
 };
 

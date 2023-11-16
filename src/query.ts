@@ -16,8 +16,8 @@ function buildRequestParams(sourceLang = 'auto', targetLang = 'en') {
       timestamp: 0,
       splitting: 'newlines',
       lang: {
-        source_lang_user_selected: sourceLang,
-        target_lang: targetLang,
+        source_lang_user_selected: sourceLang?.toUpperCase(),
+        target_lang: targetLang?.toUpperCase(),
       },
     },
   };
