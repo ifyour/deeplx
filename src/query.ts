@@ -69,6 +69,7 @@ async function query(
   const response = await fetch(config?.proxyEndpoint ?? API_URL, {
     headers: {
       'Content-Type': 'application/json; charset=utf-8',
+      ...config?.customHeader,
     },
     method: 'POST',
     body: buildRequestBody(params),

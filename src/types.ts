@@ -37,4 +37,5 @@ export type ResponseParams = {
 
 export type Config = {
   proxyEndpoint?: string;
+  customHeader?: Record<string, string>;
 };
