@@ -1,6 +1,6 @@
-# DeepLx
+# DeepLX
 
-⚡️ DeepLx API npm package.
+⚡️ DeepLX API npm package.
 
 [![test](https://badgen.net/github/checks/ifyour/deeplx/main?label=%20CI)](https://github.com/ifyour/deeplx/actions/workflows/main.yml)
 [![dw](https://badgen.net/npm/dt/@ifyour/deeplx?label=Downloads)](https://www.npmjs.com/package/@ifyour/deeplx)
@@ -65,4 +65,4 @@ For this case, it can be solved using the [DeepL proxy server](https://github.co
 
 ## License
 
-DeepLx is available under the MIT license.
+DeepLX is available under the MIT license.
