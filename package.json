@@ -48,7 +48,7 @@
   ],
   "devDependencies": {
     "@size-limit/preset-small-lib": "^10.0.2",
-    "hono": "^3.9.2",
+    "hono": "^3.11.7",
     "husky": "^8.0.3",
     "jest-fetch-mock": "^3.0.3",
     "size-limit": "^10.0.2",
