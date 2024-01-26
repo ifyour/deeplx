@@ -81,7 +81,7 @@ async function query(
       code: 200,
       message: 'success',
       data: result?.texts?.[0]?.text,
-      source_lang: params?.source_lang || 'auto',
+      source_lang: params?.source_lang || result?.lang || 'auto',
       target_lang: params?.target_lang || 'en',
       alternatives: result.texts?.[0]?.alternatives?.map?.(item => item.text),
     };
